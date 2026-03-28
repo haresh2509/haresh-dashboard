@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Haresh — Job & Expense Dashboard</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+:root{--bg:#0b0c10;--card:#1f2833;--text:#66fcf1;--muted:#45a29e;--accent:#c5c6c7}
+body{font-family:Inter,system-ui,Arial,sans-serif;background:var(--bg);color:var(--text);margin:0;padding:20px}
+.container{max-width:1200px;margin:0 auto}
+header{display:flex;justify-content:space-between;align-items:center;margin-bottom:20px}
+h1{margin:0;font-size:1.6rem}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:16px}
+.card{background:var(--card);padding:16px;border-radius:10px;box-shadow:0 4px 12px rgba(0,0,0,.3)}
+.card h2{margin-top:0;font-size:1.2rem;color:var(--muted)}
+table{width:100%;border-collapse:collapse;font-size:.9rem}
+th,td{text-align:left;padding:8px 6px;border-bottom:1px solid #333}
+th{color:var(--muted)}
+.kpi{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-bottom:16px}
+.kpi .box{background:var(--card);padding:12px;border-radius:8px;text-align:center}
+.kpi .num{font-size:1.6rem;font-weight:700;color:var(--text)}
+.kpi .lab{font-size:.8rem;color:var(--muted)}
+.bar{height:6px;background:#333;border-radius:3px;margin-top:6px}
+.fill{height:100%;background:var(--muted);border-radius:3px}
+.actions button{background:var(--muted);color:#000;border:none;padding:8px 12px;border-radius:6px;cursor:pointer;margin-right:6px}
+.actions button:hover{opacity:.9}
+.notes{white-space:pre-wrap;font-size:.9rem;line-height:1.4}
+</style>
+</head>
+<body>
+<div class="container">
+<header>
+<h1>♠ Haresh’s Dashboard</h1>
+<div class="actions">
+<button onclick="addJob()">+ Job</button>
+<button onclick="addExpense()">+ Expense</button>
+<button onclick="exportCSV()">Export CSV</button>
+</div>
+</header>
+
+<div class="kpi">
+<div class="box"><div class="num" id="apps-sent">0</div><div class="lab">Applications Sent</div></div>
+<div class="box"><div><div class="num" id="interviews">0</div><div class="lab">Interviews</div></div></div>
+<div class="box"><div><div class="num" id="offers">0</div><div class="lab">Offers</div></div></div>
+<div class="box"><div><div class="num" id="exp-month">₹0</div><div class="lab">Expenses (This Month)</div></div></div>
+</div>
+
+<div class="grid">
+<div class="card">
+<h2>Job Applications</h2>
+<table id="jobs-table">
+<thead><tr><th>Date</th><th>Company</th><th>Role</th><th>Status</th></tr>
+</thead>
+<tbody></tbody>
+</table>
+</div>
+
+<div class="card">
+<h2>Recent Expenses</h2>
+<table id="expenses-table">
+<thead><tr><th>Date</th><th>Category</th><th>Amount</th><th>Payment</th></tr>
+</thead>
+<tbody></tbody>
+</table>
+</div>
+
+<div class="card">
+<h2>Status Breakdown</h2>
+<div id="status-chart"></div>
+</div>
+
+<div class="card">
+<h2>Monthly Expenses</h2>
+<canvas id="expense-chart" height="160"></canvas>
+</div>
+
+<div class="card" style="grid-column:1 / -1">
+<h2>Notes & Next Actions</h2>
+<div class="notes" contenteditable="true" id="notes" style="border:1px solid #333;padding:10px;border-radius:6px;min-height:80px">
+- Follow up with recruiters by Monday
+- Upload updated resume to LinkedIn
+- Review weekly expense categories
+- Schedule health checkup
+</div>
+</div>
+</div>
+</div>
+
+<script>
+// Data stored in localStorage
+const STORAGE_KEYS = { JOBS: 'dashboard_jobs', EXPENSES: 'dashboard_expenses', NOTES: 'dashboard_notes' };
+
+function loadData() {
+  const jobs = JSON.parse(localStorage.getItem(STORAGE_KEYS.JOBS) || '[]');
+  const expenses = JSON.parse(localStorage.getItem(STORAGE_KEYS.EXPENSES) || '[]');
+  const notes = localStorage.getItem(STORAGE_KEYS.NOTES) || '';
+  return { jobs, expenses, notes };
+}
+
+function saveData(data) {
+  localStorage.setItem(STORAGE_KEYS.JOBS, JSON.stringify(data.jobs));
+  localStorage.setItem(STORAGE_KEYS.EXPENSES, JSON.stringify(data.expenses));
+  localStorage.setItem(STORAGE_KEYS.NOTES, data.notes);
+  render();
+}
+
+function render() {
+  const { jobs, expenses, notes } = loadData();
+  // KPI
+  document.getElementById('apps-sent').textContent = jobs.length;
+  document.getElementById('interviews').textContent = jobs.filter(j => j.status === 'Interview').length;
+  document.getElementById('offers').textContent = jobs.filter(j => j.status === 'Offer').length;
+  const now = new Date();
+  const monthExp = expenses.filter(e => {
+    const d = new Date(e.date);
+    return d.getMonth() === now.getMonth() && d.getFullYear() === now.getFullYear();
+  }).reduce((sum, e) => sum + parseFloat(e.amount), 0);
+  document.getElementById('exp-month').textContent = '₹' + monthExp.toLocaleString('en-IN', {maximumFractionDigits:0});
+
+  // Jobs table
+  const jobsTbody = document.querySelector('#jobs-table tbody');
+  jobsTbody.innerHTML = '';
+  jobs.sort((a,b) => new Date(b.date) - new Date(a.date)).slice(0,15).forEach(j => {
+    const tr = document.createElement('tr');
+    tr.innerHTML = `<td>${j.date}</td><td>${j.company}</td><td>${j.role}</td><td>${j.status}</td>`;
+    jobsTbody.appendChild(tr);
+  });
+
+  // Expenses table
+  const expTbody = document.querySelector('#expenses-table tbody');
+  expTbody.innerHTML = '';
+  expenses.sort((a,b) => new Date(b.date) - new Date(a.date)).slice(0,15).forEach(e => {
+    const tr = document.createElement('tr');
+    tr.innerHTML = `<td>${e.date}</td><td>${e.category}</td><td>₹${parseFloat(e.amount).toLocaleString('en-IN')}</td><td>${e.payment}</td>`;
+    expTbody.appendChild(tr);
+  });
+
+  // Status breakdown
+  const statuses = [...new Set(jobs.map(j => j.status))];
+  const statusChart = document.getElementById('status-chart');
+  statusChart.innerHTML = statuses.map(s => {
+    const count = jobs.filter(j => j.status === s).length;
+    const pct = jobs.length ? Math.round(count / jobs.length * 100) : 0;
+    return `<div style="margin-bottom:8px"><div style="display:flex;justify-content:space-between;font-size:.85rem"><span>${s}</span><span>${count} (${pct}%)</span></div><div class="bar"><div class="fill" style="width:${pct}%"></div></div></div>`;
+  }).join('');
+
+  // Simple monthly expense chart using canvas (lightweight)
+  const canvas = document.getElementById('expense-chart');
+  const ctx = canvas.getContext('2d');
+  ctx.clearRect(0,0,canvas.width,canvas.height);
+  const months = {};
+  expenses.forEach(e => {
+    const d = new Date(e.date);
+    const key = d.toLocaleString('en-IN', { month: 'short', year: 'numeric' });
+    months[key] = (months[key]||0) + parseFloat(e.amount);
+  });
+  const sortedMonths = Object.keys(months).sort((a,b) => new Date(a) - new Date(b)).slice(-6);
+  const values = sortedMonths.map(m => months[m] || 0);
+  const max = Math.max(...values, 1);
+  const barWidth = canvas.width / (sortedMonths.length*2 + 1);
+  ctx.fillStyle = '#45a29e';
+  sortedMonths.forEach((m, i) => {
+    const h = (values[i]/max) * (canvas.height - 30);
+    ctx.fillRect(i*2*barWidth + barWidth, canvas.height - h, barWidth, h);
+    ctx.fillStyle = '#c5c6c7';
+    ctx.font = '10px Inter';
+    ctx.textAlign = 'center';
+    ctx.fillText(m, i*2*barWidth + barWidth*1.5, canvas.height - 10);
+    ctx.fillStyle = '#45a29e';
+  });
+}
+
+function addJob() {
+  const jobs = loadData().jobs;
+  const today = new Date().toISOString().split('T')[0];
+  const company = prompt('Company?', '');
+  if (!company) return;
+  const role = prompt('Role? (e.g., Internal Audit, SOX, Compliance)', '');
+  if (!role) return;
+  const statusOptions = ['Applied','Interview','Offer','Rejected','Withdrawn'];
+  const status = statusOptions[prompt(`Status? ${statusOptions.map((s,i)=>`${i+1}=${s}`).join(', ')}`)-1] || 'Applied';
+  jobs.push({ date: today, company, role, status });
+  saveData({ ...loadData(), jobs });
+}
+
+function addExpense() {
+  const expenses = loadData().expenses;
+  const today = new Date().toISOString().split('T')[0];
+  const category = prompt('Category? (Travel, Food, Supplies, etc.)', '');
+  if (!category) return;
+  const amount = prompt('Amount (₹)?', '');
+  if (!amount) return;
+  const payment = prompt('Payment method? (Cash, Card, UPI)', '') || 'UPI';
+  expenses.push({ date: today, category, amount, payment });
+  saveData({ ...loadData(), expenses });
+}
+
+function exportCSV() {
+  const { jobs, expenses } = loadData();
+  const csvJobs = ['Date,Company,Role,Status', ...jobs.map(j => `${j.date},"${j.company}","${j.role}",${j.status}`)].join('\n');
+  const csvExp = ['Date,Category,Amount,Payment', ...expenses.map(e => `${e.date},"${e.category}",${e.amount},${e.payment}`)].join('\n');
+  const blob = new Blob([`Jobs:\n${csvJobs}\n\nExpenses:\n${csvExp}`], { type: 'text/csv' });
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement('a');
+  a.href = url;
+  a.download = `haresh-dashboard-${new Date().toISOString().split('T')[0]}.csv`;
+  a.click();
+  URL.revokeObjectURL(url);
+}
+
+// Notes
+document.getElementById('notes').addEventListener('input', () => {
+  saveData({ ...loadData(), notes: document.getElementById('notes').value });
+});
+
+// Initial render
+render();
+</script>
+</body>
+</html>
