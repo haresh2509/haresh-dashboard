@@ -10,8 +10,8 @@
 <style>
 :root{
   --bg: #F2F2F7;
-  --card: rgba(255, 255, 255, 0.8);
-  --card-border: rgba(60, 60, 67, 0.18);
+  --card: rgba(255,255,255,0.8);
+  --card-border: rgba(60,60,67,0.18);
   --text: #000000;
   --text-secondary: #8E8E93;
   --accent: #007AFF;
@@ -50,6 +50,7 @@ h1{
 .actions{
   display:flex;
   gap: 8px;
+  flex-wrap: wrap;
 }
 .actions button{
   background: var(--accent);
@@ -163,6 +164,43 @@ tr:last-child td{border-bottom:none}
 .status-Rejected{background:rgba(255,59,48,0.1); color: #FF3B30}
 .status-Withdrawn{background:rgba(142,142,147,0.1); color: #8E8E93}
 
+/* Category breakdown */
+.cat-row{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding: 8px 0;
+  border-bottom: 1px solid rgba(60,60,67,0.1);
+  cursor: pointer;
+}
+.cat-row:last-child{border-bottom:none}
+.cat-name{
+  font-weight: 500;
+  font-size: 14px;
+}
+.cat-amount{
+  font-weight: 600;
+  font-size: 14px;
+}
+.cat-merchants{
+  display:none;
+  margin-top: 8px;
+  padding: 8px;
+  background: rgba(60,60,67,0.04);
+  border-radius: 8px;
+  font-size: 12px;
+}
+.cat-merchants.show{display:block}
+.merchant-item{
+  display:flex;
+  justify-content:space-between;
+  padding: 4px 0;
+}
+.merchant-meta{
+  color: var(--text-secondary);
+  font-size: 11px;
+}
+
 /* Chart bars */
 .bar-container{
   display:flex;
@@ -215,7 +253,6 @@ tr:last-child td{border-bottom:none}
   .kpi .num{font-size: 22px}
   .card{padding: 12px}
 }
-
 </style>
 </head>
 <body>
@@ -270,8 +307,8 @@ tr:last-child td{border-bottom:none}
 </div>
 
 <div class="card">
-<h2>Application Status</h2>
-<div id="status-chart"></div>
+<h2>Spending by Category</h2>
+<div id="category-breakdown"></div>
 </div>
 
 <div class="card">
@@ -336,20 +373,28 @@ function render(){
   expTbody.innerHTML = '';
   expenses.sort((a,b) => new Date(b.date) - new Date(a.date)).slice(0, 15).forEach(e => {
     const tr = document.createElement('tr');
-    tr.innerHTML = `<td>${e.date}</td><td>${e.category}</td><td>₹${parseFloat(e.amount).toLocaleString('en-IN', { maximumFractionDigits: 0 })}</td><td>${e.payment}</td>`;
+    tr.innerHTML = `<td>${e.date}</td><td>${e.majorCategory || e.category}</td><td>₹${parseFloat(e.amount).toLocaleString('en-IN', { maximumFractionDigits: 0 })}</td><td>${e.payment}</td>`;
     expTbody.appendChild(tr);
   });
 
-  // Status breakdown
-  const statusCounts = {};
-  jobs.forEach(j => { statusCounts[j.status] = (statusCounts[j.status]||0) + 1; });
-  const statusChart = document.getElementById('status-chart');
-  statusChart.innerHTML = Object.entries(statusCounts).sort((a,b) => b[1] - a[1]).map(([status, count]) => {
-    const pct = Math.round(count / jobs.length * 100) || 0;
-    return `<div class="bar-container">
-      <div style="width:80px;font-size:12px;color:var(--text-secondary)">${status}</div>
-      <div class="bar-track"><div class="bar-fill" style="width:${pct}%"></div></div>
-      <div style="width:40px;text-align:right;font-size:12px">${count}</div>
+  // Category breakdown
+  const catBreakdown = document.getElementById('category-breakdown');
+  const catMap = {};
+  expenses.forEach(e => {
+    const cat = e.majorCategory || e.category;
+    catMap[cat] = (catMap[cat]||0) + parseFloat(e.amount);
+  });
+  const sortedCats = Object.entries(catMap).sort((a,b) => b[1] - a[1]);
+  const totalExp = sortedCats.reduce((sum, [, amt]) => sum + amt, 0);
+  catBreakdown.innerHTML = sortedCats.map(([cat, amt]) => {
+    const pct = Math.round(amt / totalExp * 100);
+    const merchants = expenses.filter(e => (e.majorCategory || e.category) === cat).slice(0, 5).map(e => {
+      return `<div class="merchant-item"><span>${e.merchant || 'Merchant'}</span><span class="merchant-meta">₹${parseFloat(e.amount).toLocaleString('en-IN')} • ${e.date}</span></div>`;
+    }).join('');
+    return `<div class="cat-row" onclick="this.querySelector('.cat-merchants').classList.toggle('show')">
+      <div class="cat-name">${cat}</div>
+      <div class="cat-amount">₹${amt.toLocaleString('en-IN', {maximumFractionDigits:0})} (${pct}%)</div>
+      <div class="cat-merchants">${merchants}</div>
     </div>`;
   }).join('');
 
@@ -448,7 +493,7 @@ function syncJobs(){
 function exportCSV(){
   const { jobs, expenses } = loadData();
   const csvJobs = ['Date,Company,Role,Status', ...jobs.map(j => `${j.date},"${j.company}","${j.role}",${j.status}`)].join('\n');
-  const csvExp = ['Date,Category,Amount,Payment', ...expenses.map(e => `${e.date},"${e.category}",${e.amount},${e.payment}`)].join('\n');
+  const csvExp = ['Date,Category,Amount,Payment', ...expenses.map(e => `${e.date},"${e.majorCategory||e.category}",${e.amount},${e.payment}`)].join('\n');
   const blob = new Blob([`Jobs:\n${csvJobs}\n\nExpenses:\n${csvExp}`], {type:'text/csv'});
   const url = URL.createObjectURL(blob);
   const a = document.createElement('a');
