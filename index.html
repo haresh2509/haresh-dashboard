@@ -2,47 +2,252 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>Haresh — Job & Expense Dashboard</title>
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Haresh — Dashboard</title>
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
-:root{--bg:#0b0c10;--card:#1f2833;--text:#66fcf1;--muted:#45a29e;--accent:#c5c6c7}
-body{font-family:Inter,system-ui,Arial,sans-serif;background:var(--bg);color:var(--text);margin:0;padding:20px}
-.container{max-width:1200px;margin:0 auto}
-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:20px}
-h1{margin:0;font-size:1.6rem}
-.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:16px}
-.card{background:var(--card);padding:16px;border-radius:10px;box-shadow:0 4px 12px rgba(0,0,0,.3)}
-.card h2{margin-top:0;font-size:1.2rem;color:var(--muted)}
-table{width:100%;border-collapse:collapse;font-size:.9rem}
-th,td{text-align:left;padding:8px 6px;border-bottom:1px solid #333}
-th{color:var(--muted)}
-.kpi{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-bottom:16px}
-.kpi .box{background:var(--card);padding:12px;border-radius:8px;text-align:center}
-.kpi .num{font-size:1.6rem;font-weight:700;color:var(--text)}
-.kpi .lab{font-size:.8rem;color:var(--muted)}
-.bar{height:6px;background:#333;border-radius:3px;margin-top:6px}
-.fill{height:100%;background:var(--muted);border-radius:3px}
-.actions button{background:var(--muted);color:#000;border:none;padding:8px 12px;border-radius:6px;cursor:pointer;margin-right:6px}
-.actions button:hover{opacity:.9}
-.notes{white-space:pre-wrap;font-size:.9rem;line-height:1.4}
+:root{
+  --bg: #F2F2F7;
+  --card: rgba(255, 255, 255, 0.8);
+  --card-border: rgba(60, 60, 67, 0.18);
+  --text: #000000;
+  --text-secondary: #8E8E93;
+  --accent: #007AFF;
+  --success: #34C759;
+  --warning: #FF9500;
+  --danger: #FF3B30;
+  --shadow: rgba(0,0,0,0.08);
+}
+*{box-sizing:border-box}
+body{
+  margin:0;
+  font-family: -apple-system, Inter, BlinkMacSystemFont, "Segoe UI", system-ui, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  -webkit-font-smoothing: antialiased;
+  padding-bottom: 40px;
+}
+.container{
+  max-width: 980px;
+  margin: 0 auto;
+  padding: 20px 16px;
+}
+header{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  margin-bottom: 20px;
+  padding: 0 4px;
+}
+h1{
+  margin:0;
+  font-size: 28px;
+  font-weight: 700;
+  letter-spacing: -0.5px;
+}
+.actions{
+  display:flex;
+  gap: 8px;
+}
+.actions button{
+  background: var(--accent);
+  color: white;
+  border:none;
+  padding: 10px 16px;
+  border-radius: 12px;
+  font-weight: 600;
+  font-size: 14px;
+  cursor:pointer;
+  transition: transform 0.1s, opacity 0.2s;
+}
+.actions button:active{transform:scale(0.96)}
+.actions button.secondary{
+  background: rgba(0,122,255,0.1);
+  color: var(--accent);
+}
+
+/* KPI Grid */
+.kpi{
+  display:grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 12px;
+  margin-bottom: 24px;
+}
+@media (max-width: 600px){
+  .kpi{grid-template-columns: repeat(2, 1fr);}
+}
+.kpi .box{
+  background: var(--card);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid var(--card-border);
+  border-radius: 16px;
+  padding: 16px;
+  text-align:center;
+  box-shadow: 0 4px 24px var(--shadow);
+}
+.kpi .num{
+  font-size: 26px;
+  font-weight: 700;
+  margin: 4px 0;
+  color: var(--text);
+}
+.kpi .lab{
+  font-size: 12px;
+  color: var(--text-secondary);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+/* Cards */
+.grid{
+  display:grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 16px;
+  margin-bottom: 24px;
+}
+.card{
+  background: var(--card);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid var(--card-border);
+  border-radius: 16px;
+  padding: 16px;
+  box-shadow: 0 4px 24px var(--shadow);
+}
+.card h2{
+  margin: 0 0 12px;
+  font-size: 14px;
+  color: var(--text-secondary);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  font-weight: 600;
+}
+
+/* Tables */
+table{
+  width:100%;
+  border-collapse: collapse;
+  font-size: 14px;
+}
+th,td{
+  text-align:left;
+  padding: 10px 8px;
+  border-bottom: 1px solid rgba(60,60,67,0.1);
+}
+th{
+  color: var(--text-secondary);
+  font-weight: 600;
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.3px;
+}
+td{
+  font-weight: 400;
+}
+tr:last-child td{border-bottom:none}
+
+/* Status pills */
+.status-pill{
+  display:inline-block;
+  padding: 4px 10px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 600;
+}
+.status-Applied{background:rgba(0,122,255,0.1); color: #007AFF}
+.status-Interview{background:rgba(255,149,0,0.1); color: #FF9500}
+.status-Offer{background:rgba(52,199,89,0.1); color: #34C759}
+.status-Rejected{background:rgba(255,59,48,0.1); color: #FF3B30}
+.status-Withdrawn{background:rgba(142,142,147,0.1); color: #8E8E93}
+
+/* Chart bars */
+.bar-container{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  margin-bottom: 8px;
+  font-size: 12px;
+}
+.bar-track{
+  flex:1;
+  height: 6px;
+  background: rgba(60,60,67,0.1);
+  border-radius: 3px;
+  margin-left: 8px;
+  overflow:hidden;
+}
+.bar-fill{
+  height:100%;
+  background: var(--accent);
+  border-radius: 3px;
+  transition: width 0.3s ease;
+}
+
+/* Canvas chart */
+#expense-chart{
+  width: 100%;
+  height: 180px;
+  margin-top: 4px;
+}
+
+/* Notes */
+.notes{
+  min-height: 80px;
+  border: 1px solid var(--card-border);
+  border-radius: 12px;
+  padding: 12px;
+  font-size: 14px;
+  line-height: 1.5;
+  background: rgba(255,255,255,0.5);
+  outline: none;
+  transition: border-color 0.2s;
+}
+.notes:focus{
+  border-color: var(--accent);
+}
+
+/* Clean mobile */
+@media (max-width: 600px){
+  .container{padding: 12px}
+  .kpi .num{font-size: 22px}
+  .card{padding: 12px}
+}
+
 </style>
 </head>
 <body>
 <div class="container">
 <header>
-<h1>♠ Haresh’s Dashboard</h1>
+<h1>Dashboard</h1>
 <div class="actions">
 <button onclick="addJob()">+ Job</button>
 <button onclick="addExpense()">+ Expense</button>
-<button onclick="exportCSV()">Export CSV</button>
+<button class="secondary" onclick="syncExpenses()">Sync Expenses</button>
+<button class="secondary" onclick="syncJobs()">Sync Jobs</button>
+<button class="secondary" onclick="exportCSV()">Export CSV</button>
 </div>
 </header>
 
 <div class="kpi">
-<div class="box"><div class="num" id="apps-sent">0</div><div class="lab">Applications Sent</div></div>
-<div class="box"><div><div class="num" id="interviews">0</div><div class="lab">Interviews</div></div></div>
-<div class="box"><div><div class="num" id="offers">0</div><div class="lab">Offers</div></div></div>
-<div class="box"><div><div class="num" id="exp-month">₹0</div><div class="lab">Expenses (This Month)</div></div></div>
+<div class="box">
+  <div class="num" id="apps-sent">0</div>
+  <div class="lab">Applications</div>
+</div>
+<div class="box">
+  <div class="num" id="interviews">0</div>
+  <div class="lab">Interviews</div>
+</div>
+<div class="box">
+  <div class="num" id="offers">0</div>
+  <div class="lab">Offers</div>
+</div>
+<div class="box">
+  <div class="num" id="exp-month">₹0</div>
+  <div class="lab">Expenses (MoM)</div>
+</div>
 </div>
 
 <div class="grid">
@@ -65,18 +270,18 @@ th{color:var(--muted)}
 </div>
 
 <div class="card">
-<h2>Status Breakdown</h2>
+<h2>Application Status</h2>
 <div id="status-chart"></div>
 </div>
 
 <div class="card">
 <h2>Monthly Expenses</h2>
-<canvas id="expense-chart" height="160"></canvas>
+<canvas id="expense-chart"></canvas>
 </div>
 
-<div class="card" style="grid-column:1 / -1">
+<div class="card" style="grid-column: 1 / -1">
 <h2>Notes & Next Actions</h2>
-<div class="notes" contenteditable="true" id="notes" style="border:1px solid #333;padding:10px;border-radius:6px;min-height:80px">
+<div class="notes" contenteditable="true" id="notes" spellcheck="false">
 - Follow up with recruiters by Monday
 - Upload updated resume to LinkedIn
 - Review weekly expense categories
@@ -87,25 +292,25 @@ th{color:var(--muted)}
 </div>
 
 <script>
-// Data stored in localStorage
 const STORAGE_KEYS = { JOBS: 'dashboard_jobs', EXPENSES: 'dashboard_expenses', NOTES: 'dashboard_notes' };
 
-function loadData() {
-  const jobs = JSON.parse(localStorage.getItem(STORAGE_KEYS.JOBS) || '[]');
-  const expenses = JSON.parse(localStorage.getItem(STORAGE_KEYS.EXPENSES) || '[]');
-  const notes = localStorage.getItem(STORAGE_KEYS.NOTES) || '';
+function loadData(){
+  const jobs = JSON.parse(localStorage.getItem(STORAGE_KEYS.JOBS)||'[]');
+  const expenses = JSON.parse(localStorage.getItem(STORAGE_KEYS.EXPENSES)||'[]');
+  const notes = localStorage.getItem(STORAGE_KEYS.NOTES)||'';
   return { jobs, expenses, notes };
 }
 
-function saveData(data) {
+function saveData(data){
   localStorage.setItem(STORAGE_KEYS.JOBS, JSON.stringify(data.jobs));
   localStorage.setItem(STORAGE_KEYS.EXPENSES, JSON.stringify(data.expenses));
   localStorage.setItem(STORAGE_KEYS.NOTES, data.notes);
   render();
 }
 
-function render() {
+function render(){
   const { jobs, expenses, notes } = loadData();
+
   // KPI
   document.getElementById('apps-sent').textContent = jobs.length;
   document.getElementById('interviews').textContent = jobs.filter(j => j.status === 'Interview').length;
@@ -115,67 +320,82 @@ function render() {
     const d = new Date(e.date);
     return d.getMonth() === now.getMonth() && d.getFullYear() === now.getFullYear();
   }).reduce((sum, e) => sum + parseFloat(e.amount), 0);
-  document.getElementById('exp-month').textContent = '₹' + monthExp.toLocaleString('en-IN', {maximumFractionDigits:0});
+  document.getElementById('exp-month').textContent = '₹' + monthExp.toLocaleString('en-IN', { maximumFractionDigits: 0 });
 
   // Jobs table
   const jobsTbody = document.querySelector('#jobs-table tbody');
   jobsTbody.innerHTML = '';
-  jobs.sort((a,b) => new Date(b.date) - new Date(a.date)).slice(0,15).forEach(j => {
+  jobs.sort((a,b) => new Date(b.date) - new Date(a.date)).slice(0, 15).forEach(j => {
     const tr = document.createElement('tr');
-    tr.innerHTML = `<td>${j.date}</td><td>${j.company}</td><td>${j.role}</td><td>${j.status}</td>`;
+    tr.innerHTML = `<td>${j.date}</td><td>${j.company}</td><td>${j.role}</td><td><span class="status-pill status-${j.status.replace(/\s/g,'')}">${j.status}</span></td>`;
     jobsTbody.appendChild(tr);
   });
 
   // Expenses table
   const expTbody = document.querySelector('#expenses-table tbody');
   expTbody.innerHTML = '';
-  expenses.sort((a,b) => new Date(b.date) - new Date(a.date)).slice(0,15).forEach(e => {
+  expenses.sort((a,b) => new Date(b.date) - new Date(a.date)).slice(0, 15).forEach(e => {
     const tr = document.createElement('tr');
-    tr.innerHTML = `<td>${e.date}</td><td>${e.category}</td><td>₹${parseFloat(e.amount).toLocaleString('en-IN')}</td><td>${e.payment}</td>`;
+    tr.innerHTML = `<td>${e.date}</td><td>${e.category}</td><td>₹${parseFloat(e.amount).toLocaleString('en-IN', { maximumFractionDigits: 0 })}</td><td>${e.payment}</td>`;
     expTbody.appendChild(tr);
   });
 
   // Status breakdown
-  const statuses = [...new Set(jobs.map(j => j.status))];
+  const statusCounts = {};
+  jobs.forEach(j => { statusCounts[j.status] = (statusCounts[j.status]||0) + 1; });
   const statusChart = document.getElementById('status-chart');
-  statusChart.innerHTML = statuses.map(s => {
-    const count = jobs.filter(j => j.status === s).length;
-    const pct = jobs.length ? Math.round(count / jobs.length * 100) : 0;
-    return `<div style="margin-bottom:8px"><div style="display:flex;justify-content:space-between;font-size:.85rem"><span>${s}</span><span>${count} (${pct}%)</span></div><div class="bar"><div class="fill" style="width:${pct}%"></div></div></div>`;
+  statusChart.innerHTML = Object.entries(statusCounts).sort((a,b) => b[1] - a[1]).map(([status, count]) => {
+    const pct = Math.round(count / jobs.length * 100) || 0;
+    return `<div class="bar-container">
+      <div style="width:80px;font-size:12px;color:var(--text-secondary)">${status}</div>
+      <div class="bar-track"><div class="bar-fill" style="width:${pct}%"></div></div>
+      <div style="width:40px;text-align:right;font-size:12px">${count}</div>
+    </div>`;
   }).join('');
 
-  // Simple monthly expense chart using canvas (lightweight)
+  // Monthly expense chart
   const canvas = document.getElementById('expense-chart');
   const ctx = canvas.getContext('2d');
-  ctx.clearRect(0,0,canvas.width,canvas.height);
+  const dpr = window.devicePixelRatio || 1;
+  const rect = canvas.getBoundingClientRect();
+  canvas.width = rect.width * dpr;
+  canvas.height = rect.height * dpr;
+  ctx.scale(dpr, dpr);
+  ctx.clearRect(0,0,rect.width,rect.height);
   const months = {};
   expenses.forEach(e => {
     const d = new Date(e.date);
-    const key = d.toLocaleString('en-IN', { month: 'short', year: 'numeric' });
+    const key = d.toLocaleString('en-US', { month: 'short', year: 'numeric' });
     months[key] = (months[key]||0) + parseFloat(e.amount);
   });
   const sortedMonths = Object.keys(months).sort((a,b) => new Date(a) - new Date(b)).slice(-6);
   const values = sortedMonths.map(m => months[m] || 0);
   const max = Math.max(...values, 1);
-  const barWidth = canvas.width / (sortedMonths.length*2 + 1);
-  ctx.fillStyle = '#45a29e';
+  const pad = 30, availW = rect.width - 2*pad;
+  const barW = availW / (sortedMonths.length * 2);
+  const scale = (rect.height - 40) / max;
+  ctx.fillStyle = 'rgba(0,122,255,0.8)';
   sortedMonths.forEach((m, i) => {
-    const h = (values[i]/max) * (canvas.height - 30);
-    ctx.fillRect(i*2*barWidth + barWidth, canvas.height - h, barWidth, h);
-    ctx.fillStyle = '#c5c6c7';
-    ctx.font = '10px Inter';
+    const h = values[i] * scale;
+    const x = pad + i * 2 * barW + barW/2;
+    const y = rect.height - h - 20;
+    ctx.beginPath();
+    ctx.roundRect(x, y, barW, h, 6);
+    ctx.fill();
+    ctx.fillStyle = '#8E8E93';
+    ctx.font = '11px Inter';
     ctx.textAlign = 'center';
-    ctx.fillText(m, i*2*barWidth + barWidth*1.5, canvas.height - 10);
-    ctx.fillStyle = '#45a29e';
+    ctx.fillText(m, x + barW/2, rect.height - 6);
+    ctx.fillStyle = 'rgba(0,122,255,0.8)';
   });
 }
 
-function addJob() {
+function addJob(){
   const jobs = loadData().jobs;
   const today = new Date().toISOString().split('T')[0];
   const company = prompt('Company?', '');
   if (!company) return;
-  const role = prompt('Role? (e.g., Internal Audit, SOX, Compliance)', '');
+  const role = prompt('Role?', '');
   if (!role) return;
   const statusOptions = ['Applied','Interview','Offer','Rejected','Withdrawn'];
   const status = statusOptions[prompt(`Status? ${statusOptions.map((s,i)=>`${i+1}=${s}`).join(', ')}`)-1] || 'Applied';
@@ -183,10 +403,10 @@ function addJob() {
   saveData({ ...loadData(), jobs });
 }
 
-function addExpense() {
+function addExpense(){
   const expenses = loadData().expenses;
   const today = new Date().toISOString().split('T')[0];
-  const category = prompt('Category? (Travel, Food, Supplies, etc.)', '');
+  const category = prompt('Category?', '');
   if (!category) return;
   const amount = prompt('Amount (₹)?', '');
   if (!amount) return;
@@ -195,11 +415,41 @@ function addExpense() {
   saveData({ ...loadData(), expenses });
 }
 
-function exportCSV() {
+function syncExpenses(){
+  fetch('expenses-sync.json')
+    .then(r => r.ok ? r.json() : Promise.reject('File not found'))
+    .then(data => {
+      if (data.expenses && Array.isArray(data.expenses)){
+        const cur = loadData();
+        const keys = new Set(cur.expenses.map(e => `${e.date}|${e.merchant||''}|${e.amount}`));
+        const merged = { ...cur, expenses: [...cur.expenses, ...data.expenses.filter(e => !keys.has(`${e.date}|${e.merchant||''}|${e.amount}`))] };
+        saveData(merged);
+        alert(`Synced ${data.expenses.length} expenses.`);
+      } else alert('Invalid expenses data.');
+    })
+    .catch(e => alert('Sync error: '+e));
+}
+
+function syncJobs(){
+  fetch('jobs-sync.json')
+    .then(r => r.ok ? r.json() : Promise.reject('File not found'))
+    .then(data => {
+      if (data.jobs && Array.isArray(data.jobs)){
+        const cur = loadData();
+        const keys = new Set(cur.jobs.map(j => `${j.date}|${j.company}|${j.role}`));
+        const merged = { ...cur, jobs: [...cur.jobs, ...data.jobs.filter(j => !keys.has(`${j.date}|${j.company}|${j.role}`))] };
+        saveData(merged);
+        alert(`Synced ${data.jobs.length} job applications.`);
+      } else alert('Invalid jobs data.');
+    })
+    .catch(e => alert('Sync error: '+e));
+}
+
+function exportCSV(){
   const { jobs, expenses } = loadData();
   const csvJobs = ['Date,Company,Role,Status', ...jobs.map(j => `${j.date},"${j.company}","${j.role}",${j.status}`)].join('\n');
   const csvExp = ['Date,Category,Amount,Payment', ...expenses.map(e => `${e.date},"${e.category}",${e.amount},${e.payment}`)].join('\n');
-  const blob = new Blob([`Jobs:\n${csvJobs}\n\nExpenses:\n${csvExp}`], { type: 'text/csv' });
+  const blob = new Blob([`Jobs:\n${csvJobs}\n\nExpenses:\n${csvExp}`], {type:'text/csv'});
   const url = URL.createObjectURL(blob);
   const a = document.createElement('a');
   a.href = url;
@@ -208,12 +458,14 @@ function exportCSV() {
   URL.revokeObjectURL(url);
 }
 
-// Notes
 document.getElementById('notes').addEventListener('input', () => {
   saveData({ ...loadData(), notes: document.getElementById('notes').value });
 });
 
-// Initial render
+window.addEventListener('load', () => {
+  setTimeout(() => { syncExpenses().catch(()=>{}); setTimeout(syncJobs, 500); });
+});
+
 render();
 </script>
 </body>
