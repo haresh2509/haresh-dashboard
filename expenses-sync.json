@@ -1,0 +1,563 @@
+{
+  "expenses": [
+    {
+      "date": "2026-03-26",
+      "category": "Other",
+      "amount": 477.49,
+      "payment": "UPI",
+      "merchant": "642509671695",
+      "source": "=?UTF-8?B?QXhpcyBCYW5rIEFsZXJ0cw==?= <alerts@axis.bank.in>",
+      "synced": true
+    },
+    {
+      "date": "2026-03-26",
+      "category": "Other",
+      "amount": 3000,
+      "payment": "UPI",
+      "merchant": "606045125901",
+      "source": "=?UTF-8?B?QXhpcyBCYW5rIEFsZXJ0cw==?= <alerts@axis.bank.in>",
+      "synced": true
+    },
+    {
+      "date": "2026-03-26",
+      "category": "Other",
+      "amount": 144.05,
+      "payment": "UPI",
+      "merchant": "606056340490",
+      "source": "=?UTF-8?B?QXhpcyBCYW5rIEFsZXJ0cw==?= <alerts@axis.bank.in>",
+      "synced": true
+    },
+    {
+      "date": "2026-03-26",
+      "category": "Other",
+      "amount": 40,
+      "payment": "UPI",
+      "merchant": "733240736500",
+      "source": "=?UTF-8?B?QXhpcyBCYW5rIEFsZXJ0cw==?= <alerts@axis.bank.in>",
+      "synced": true
+    },
+    {
+      "date": "2026-03-02",
+      "category": "Other",
+      "amount": 4490,
+      "payment": "UPI",
+      "merchant": "your",
+      "source": "=?UTF-8?B?QXhpcyBCYW5rIEFsZXJ0cw==?= <alerts@axis.bank.in>",
+      "synced": true
+    },
+    {
+      "date": "2026-03-26",
+      "category": "Other",
+      "amount": 20,
+      "payment": "UPI",
+      "merchant": "968912636005",
+      "source": "=?UTF-8?B?QXhpcyBCYW5rIEFsZXJ0cw==?= <alerts@axis.bank.in>",
+      "synced": true
+    },
+    {
+      "date": "2026-03-26",
+      "category": "Other",
+      "amount": 40,
+      "payment": "UPI",
+      "merchant": "769429617887",
+      "source": "=?UTF-8?B?QXhpcyBCYW5rIEFsZXJ0cw==?= <alerts@axis.bank.in>",
+      "synced": true
+    },
+    {
+      "date": "2026-03-26",
+      "category": "Other",
+      "amount": 234,
+      "payment": "UPI",
+      "merchant": "107830560934",
+      "source": "=?UTF-8?B?QXhpcyBCYW5rIEFsZXJ0cw==?= <alerts@axis.bank.in>",
+      "synced": true
+    },
+    {
+      "date": "2026-03-26",
+      "category": "Other",
+      "amount": 30,
+      "payment": "UPI",
+      "merchant": "045747205316",
+      "source": "=?UTF-8?B?QXhpcyBCYW5rIEFsZXJ0cw==?= <alerts@axis.bank.in>",
+      "synced": true
+    },
+    {
+      "date": "2026-03-26",
+      "category": "Other",
+      "amount": 54,
+      "payment": "UPI",
+      "merchant": "541983864976",
+      "source": "=?UTF-8?B?QXhpcyBCYW5rIEFsZXJ0cw==?= <alerts@axis.bank.in>",
+      "synced": true
+    },
+    {
+      "date": "2026-03-26",
+      "category": "Other",
+      "amount": 139,
+      "payment": "UPI",
+      "merchant": "046097798510",
+      "source": "=?UTF-8?B?QXhpcyBCYW5rIEFsZXJ0cw==?= <alerts@axis.bank.in>",
+      "synced": true
+    },
+    {
+      "date": "2026-03-26",
+      "category": "Other",
+      "amount": 320,
+      "payment": "UPI",
+      "merchant": "495938258836",
+      "source": "=?UTF-8?B?QXhpcyBCYW5rIEFsZXJ0cw==?= <alerts@axis.bank.in>",
+      "synced": true
+    },
+    {
+      "date": "2026-03-26",
+      "category": "Other",
+      "amount": 119,
+      "payment": "UPI",
+      "merchant": "603543234959",
+      "source": "=?UTF-8?B?QXhpcyBCYW5rIEFsZXJ0cw==?= <alerts@axis.bank.in>",
+      "synced": true
+    },
+    {
+      "date": "2026-03-26",
+      "category": "Other",
+      "amount": 20,
+      "payment": "UPI",
+      "merchant": "147351576323",
+      "source": "=?UTF-8?B?QXhpcyBCYW5rIEFsZXJ0cw==?= <alerts@axis.bank.in>",
+      "synced": true
+    },
+    {
+      "date": "2026-03-26",
+      "category": "Other",
+      "amount": 2274.5,
+      "payment": "UPI",
+      "merchant": "448422436336",
+      "source": "=?UTF-8?B?QXhpcyBCYW5rIEFsZXJ0cw==?= <alerts@axis.bank.in>",
+      "synced": true
+    },
+    {
+      "date": "2026-03-26",
+      "category": "Other",
+      "amount": 103,
+      "payment": "UPI",
+      "merchant": "494946635491",
+      "source": "\"\"\"alerts@axis.bank.in\"\" <alerts@axis.bank.in>\"",
+      "synced": true
+    },
+    {
+      "date": "2026-03-26",
+      "category": "Other",
+      "amount": 30,
+      "payment": "UPI",
+      "merchant": "516496750920",
+      "source": "=?UTF-8?B?QXhpcyBCYW5rIEFsZXJ0cw==?= <alerts@axis.bank.in>",
+      "synced": true
+    },
+    {
+      "date": "2026-03-26",
+      "category": "Other",
+      "amount": 256,
+      "payment": "UPI",
+      "merchant": "588459160933",
+      "source": "=?UTF-8?B?QXhpcyBCYW5rIEFsZXJ0cw==?= <alerts@axis.bank.in>",
+      "synced": true
+    },
+    {
+      "date": "2026-03-26",
+      "category": "Other",
+      "amount": 540,
+      "payment": "UPI",
+      "merchant": "571423589847",
+      "source": "=?UTF-8?B?QXhpcyBCYW5rIEFsZXJ0cw==?= <alerts@axis.bank.in>",
+      "synced": true
+    },
+    {
+      "date": "2026-03-26",
+      "category": "Other",
+      "amount": 105,
+      "payment": "UPI",
+      "merchant": "829181716523",
+      "source": "=?UTF-8?B?QXhpcyBCYW5rIEFsZXJ0cw==?= <alerts@axis.bank.in>",
+      "synced": true
+    },
+    {
+      "date": "2026-03-26",
+      "category": "Other",
+      "amount": 54,
+      "payment": "UPI",
+      "merchant": "638854179503",
+      "source": "=?UTF-8?B?QXhpcyBCYW5rIEFsZXJ0cw==?= <alerts@axis.bank.in>",
+      "synced": true
+    },
+    {
+      "date": "2026-03-26",
+      "category": "Other",
+      "amount": 60,
+      "payment": "UPI",
+      "merchant": "800498642539",
+      "source": "=?UTF-8?B?QXhpcyBCYW5rIEFsZXJ0cw==?= <alerts@axis.bank.in>",
+      "synced": true
+    },
+    {
+      "date": "2026-03-26",
+      "category": "Other",
+      "amount": 188,
+      "payment": "UPI",
+      "merchant": "955039237580",
+      "source": "=?UTF-8?B?QXhpcyBCYW5rIEFsZXJ0cw==?= <alerts@axis.bank.in>",
+      "synced": true
+    },
+    {
+      "date": "2026-03-26",
+      "category": "Other",
+      "amount": 550,
+      "payment": "UPI",
+      "merchant": "843699600088",
+      "source": "=?UTF-8?B?QXhpcyBCYW5rIEFsZXJ0cw==?= <alerts@axis.bank.in>",
+      "synced": true
+    },
+    {
+      "date": "2026-03-26",
+      "category": "Other",
+      "amount": 2322,
+      "payment": "UPI",
+      "merchant": "941402083695",
+      "source": "=?UTF-8?B?QXhpcyBCYW5rIEFsZXJ0cw==?= <alerts@axis.bank.in>",
+      "synced": true
+    },
+    {
+      "date": "2026-03-10",
+      "category": "Other",
+      "amount": 34698,
+      "payment": "UPI",
+      "merchant": "your",
+      "source": "=?UTF-8?B?QXhpcyBCYW5rIEFsZXJ0cw==?= <alerts@axis.bank.in>",
+      "synced": true
+    },
+    {
+      "date": "2026-03-10",
+      "category": "Other",
+      "amount": 24378,
+      "payment": "UPI",
+      "merchant": "your",
+      "source": "=?UTF-8?B?QXhpcyBCYW5rIEFsZXJ0cw==?= <alerts@axis.bank.in>",
+      "synced": true
+    },
+    {
+      "date": "2026-03-26",
+      "category": "Other",
+      "amount": 147,
+      "payment": "UPI",
+      "merchant": "482808514003",
+      "source": "=?UTF-8?B?QXhpcyBCYW5rIEFsZXJ0cw==?= <alerts@axis.bank.in>",
+      "synced": true
+    },
+    {
+      "date": "2026-03-26",
+      "category": "Other",
+      "amount": 145,
+      "payment": "UPI",
+      "merchant": "061485011536",
+      "source": "=?UTF-8?B?QXhpcyBCYW5rIEFsZXJ0cw==?= <alerts@axis.bank.in>",
+      "synced": true
+    },
+    {
+      "date": "2026-03-11",
+      "category": "EMI",
+      "amount": 24378,
+      "payment": "UPI",
+      "merchant": "Loan EMI",
+      "source": "=?UTF-8?B?QXhpcyBCYW5rIEFsZXJ0cw==?= <alerts@axis.bank.in>",
+      "synced": true
+    },
+    {
+      "date": "2026-03-12",
+      "category": "EMI",
+      "amount": 34698,
+      "payment": "UPI",
+      "merchant": "Loan EMI",
+      "source": "=?UTF-8?B?QXhpcyBCYW5rIEFsZXJ0cw==?= <alerts@axis.bank.in>",
+      "synced": true
+    },
+    {
+      "date": "2026-03-26",
+      "category": "Other",
+      "amount": 307,
+      "payment": "UPI",
+      "merchant": "372846740738",
+      "source": "=?UTF-8?B?QXhpcyBCYW5rIEFsZXJ0cw==?= <alerts@axis.bank.in>",
+      "synced": true
+    },
+    {
+      "date": "2026-03-26",
+      "category": "Other",
+      "amount": 60,
+      "payment": "UPI",
+      "merchant": "969636309709",
+      "source": "=?UTF-8?B?QXhpcyBCYW5rIEFsZXJ0cw==?= <alerts@axis.bank.in>",
+      "synced": true
+    },
+    {
+      "date": "2026-03-26",
+      "category": "Other",
+      "amount": 174,
+      "payment": "UPI",
+      "merchant": "068456710427",
+      "source": "=?UTF-8?B?QXhpcyBCYW5rIEFsZXJ0cw==?= <alerts@axis.bank.in>",
+      "synced": true
+    },
+    {
+      "date": "2026-03-26",
+      "category": "Other",
+      "amount": 529.82,
+      "payment": "UPI",
+      "merchant": "363227787003",
+      "source": "=?UTF-8?B?QXhpcyBCYW5rIEFsZXJ0cw==?= <alerts@axis.bank.in>",
+      "synced": true
+    },
+    {
+      "date": "2026-03-26",
+      "category": "Other",
+      "amount": 30,
+      "payment": "UPI",
+      "merchant": "415263321101",
+      "source": "=?UTF-8?B?QXhpcyBCYW5rIEFsZXJ0cw==?= <alerts@axis.bank.in>",
+      "synced": true
+    },
+    {
+      "date": "2026-03-26",
+      "category": "Other",
+      "amount": 191,
+      "payment": "UPI",
+      "merchant": "771490307615",
+      "source": "=?UTF-8?B?QXhpcyBCYW5rIEFsZXJ0cw==?= <alerts@axis.bank.in>",
+      "synced": true
+    },
+    {
+      "date": "2026-03-26",
+      "category": "Other",
+      "amount": 240,
+      "payment": "UPI",
+      "merchant": "822549520733",
+      "source": "=?UTF-8?B?QXhpcyBCYW5rIEFsZXJ0cw==?= <alerts@axis.bank.in>",
+      "synced": true
+    },
+    {
+      "date": "2026-03-26",
+      "category": "Other",
+      "amount": 3534.95,
+      "payment": "UPI",
+      "merchant": "253188761765",
+      "source": "=?UTF-8?B?QXhpcyBCYW5rIEFsZXJ0cw==?= <alerts@axis.bank.in>",
+      "synced": true
+    },
+    {
+      "date": "2026-03-26",
+      "category": "Other",
+      "amount": 123,
+      "payment": "UPI",
+      "merchant": "790930696053",
+      "source": "=?UTF-8?B?QXhpcyBCYW5rIEFsZXJ0cw==?= <alerts@axis.bank.in>",
+      "synced": true
+    },
+    {
+      "date": "2026-03-26",
+      "category": "Other",
+      "amount": 55,
+      "payment": "UPI",
+      "merchant": "334999095026",
+      "source": "=?UTF-8?B?QXhpcyBCYW5rIEFsZXJ0cw==?= <alerts@axis.bank.in>",
+      "synced": true
+    },
+    {
+      "date": "2026-03-26",
+      "category": "Other",
+      "amount": 269,
+      "payment": "UPI",
+      "merchant": "194181110360",
+      "source": "=?UTF-8?B?QXhpcyBCYW5rIEFsZXJ0cw==?= <alerts@axis.bank.in>",
+      "synced": true
+    },
+    {
+      "date": "2026-03-26",
+      "category": "Other",
+      "amount": 280,
+      "payment": "UPI",
+      "merchant": "644651774866",
+      "source": "=?UTF-8?B?QXhpcyBCYW5rIEFsZXJ0cw==?= <alerts@axis.bank.in>",
+      "synced": true
+    },
+    {
+      "date": "2026-03-26",
+      "category": "Other",
+      "amount": 156,
+      "payment": "UPI",
+      "merchant": "295394823989",
+      "source": "=?UTF-8?B?QXhpcyBCYW5rIEFsZXJ0cw==?= <alerts@axis.bank.in>",
+      "synced": true
+    },
+    {
+      "date": "2026-03-26",
+      "category": "Other",
+      "amount": 423.2,
+      "payment": "UPI",
+      "merchant": "916600497354",
+      "source": "=?UTF-8?B?QXhpcyBCYW5rIEFsZXJ0cw==?= <alerts@axis.bank.in>",
+      "synced": true
+    },
+    {
+      "date": "2026-03-26",
+      "category": "Other",
+      "amount": 20,
+      "payment": "UPI",
+      "merchant": "106889801969",
+      "source": "=?UTF-8?B?QXhpcyBCYW5rIEFsZXJ0cw==?= <alerts@axis.bank.in>",
+      "synced": true
+    },
+    {
+      "date": "2026-03-26",
+      "category": "Other",
+      "amount": 30,
+      "payment": "UPI",
+      "merchant": "882829681065",
+      "source": "=?UTF-8?B?QXhpcyBCYW5rIEFsZXJ0cw==?= <alerts@axis.bank.in>",
+      "synced": true
+    },
+    {
+      "date": "2026-03-26",
+      "category": "Other",
+      "amount": 141,
+      "payment": "UPI",
+      "merchant": "190294580364",
+      "source": "=?UTF-8?B?QXhpcyBCYW5rIEFsZXJ0cw==?= <alerts@axis.bank.in>",
+      "synced": true
+    },
+    {
+      "date": "2026-03-26",
+      "category": "Other",
+      "amount": 30,
+      "payment": "UPI",
+      "merchant": "013758260368",
+      "source": "=?UTF-8?B?QXhpcyBCYW5rIEFsZXJ0cw==?= <alerts@axis.bank.in>",
+      "synced": true
+    },
+    {
+      "date": "2026-03-26",
+      "category": "Other",
+      "amount": 60,
+      "payment": "UPI",
+      "merchant": "644806043858",
+      "source": "=?UTF-8?B?QXhpcyBCYW5rIEFsZXJ0cw==?= <alerts@axis.bank.in>",
+      "synced": true
+    },
+    {
+      "date": "2026-03-26",
+      "category": "Other",
+      "amount": 729,
+      "payment": "UPI",
+      "merchant": "644825248491",
+      "source": "=?UTF-8?B?QXhpcyBCYW5rIEFsZXJ0cw==?= <alerts@axis.bank.in>",
+      "synced": true
+    },
+    {
+      "date": "2026-03-26",
+      "category": "Other",
+      "amount": 156.44,
+      "payment": "UPI",
+      "merchant": "848984657888",
+      "source": "=?UTF-8?B?QXhpcyBCYW5rIEFsZXJ0cw==?= <alerts@axis.bank.in>",
+      "synced": true
+    },
+    {
+      "date": "2026-03-26",
+      "category": "Other",
+      "amount": 278,
+      "payment": "UPI",
+      "merchant": "917184456535",
+      "source": "=?UTF-8?B?QXhpcyBCYW5rIEFsZXJ0cw==?= <alerts@axis.bank.in>",
+      "synced": true
+    },
+    {
+      "date": "2026-03-26",
+      "category": "Other",
+      "amount": 68.98,
+      "payment": "UPI",
+      "merchant": "106849615052",
+      "source": "=?UTF-8?B?QXhpcyBCYW5rIEFsZXJ0cw==?= <alerts@axis.bank.in>",
+      "synced": true
+    },
+    {
+      "date": "2026-03-26",
+      "category": "Other",
+      "amount": 95,
+      "payment": "UPI",
+      "merchant": "185175652682",
+      "source": "\"\"\"alerts@axis.bank.in\"\" <alerts@axis.bank.in>\"",
+      "synced": true
+    },
+    {
+      "date": "2026-03-26",
+      "category": "Other",
+      "amount": 50,
+      "payment": "UPI",
+      "merchant": "288468780772",
+      "source": "=?UTF-8?B?QXhpcyBCYW5rIEFsZXJ0cw==?= <alerts@axis.bank.in>",
+      "synced": true
+    },
+    {
+      "date": "2026-03-26",
+      "category": "Other",
+      "amount": 196,
+      "payment": "UPI",
+      "merchant": "205081738759",
+      "source": "=?UTF-8?B?QXhpcyBCYW5rIEFsZXJ0cw==?= <alerts@axis.bank.in>",
+      "synced": true
+    },
+    {
+      "date": "2026-03-26",
+      "category": "Other",
+      "amount": 20,
+      "payment": "UPI",
+      "merchant": "435566102180",
+      "source": "=?UTF-8?B?QXhpcyBCYW5rIEFsZXJ0cw==?= <alerts@axis.bank.in>",
+      "synced": true
+    },
+    {
+      "date": "2026-03-26",
+      "category": "Other",
+      "amount": 185,
+      "payment": "UPI",
+      "merchant": "817743885669",
+      "source": "=?UTF-8?B?QXhpcyBCYW5rIEFsZXJ0cw==?= <alerts@axis.bank.in>",
+      "synced": true
+    },
+    {
+      "date": "2026-03-28",
+      "category": "Other",
+      "amount": 65,
+      "payment": "UPI",
+      "merchant": "940945949622",
+      "source": "=?UTF-8?B?QXhpcyBCYW5rIEFsZXJ0cw==?= <alerts@axis.bank.in>",
+      "synced": true
+    },
+    {
+      "date": "2026-03-28",
+      "category": "Uncategorized",
+      "amount": 360,
+      "payment": "UPI",
+      "merchant": "482130291552",
+      "source": "=?UTF-8?B?QXhpcyBCYW5rIEFsZXJ0cw==?= <alerts@axis.bank.in>",
+      "synced": true
+    },
+    {
+      "date": "2026-03-28",
+      "category": "Uncategorized",
+      "amount": 292,
+      "payment": "UPI",
+      "merchant": "197750820908",
+      "source": "=?UTF-8?B?QXhpcyBCYW5rIEFsZXJ0cw==?= <alerts@axis.bank.in>",
+      "synced": true
+    }
+  ],
+  "lastSync": "2026-03-28T16:49:46.133Z"
+}

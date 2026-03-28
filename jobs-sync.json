@@ -1,0 +1,195 @@
+{
+  "jobs": [
+    {
+      "date": "2026-03-24",
+      "company": "Third Company",
+      "role": "Test Application 3",
+      "status": "Applied",
+      "method": "email",
+      "followup": "",
+      "notes": "Sent to haresh.mulchandani01@gmail.com",
+      "synced": true
+    },
+    {
+      "date": "2026-03-25",
+      "company": "Unknown Company",
+      "role": "AVP-Internal Audit",
+      "status": "Applied",
+      "method": "email",
+      "followup": "",
+      "notes": "Sent to sushanti.shukla@skillventory.com",
+      "synced": true
+    },
+    {
+      "date": "2026-03-25",
+      "company": "Unknown Company",
+      "role": "Unknown Role",
+      "status": "Applied",
+      "method": "email",
+      "followup": "",
+      "notes": "Sent to madhav.agrawal@axisbank.com",
+      "synced": true
+    },
+    {
+      "date": "2026-03-25",
+      "company": "Unknown Company",
+      "role": "Unknown Role",
+      "status": "Applied",
+      "method": "email",
+      "followup": "",
+      "notes": "Sent to lavanya@livecjobs.com",
+      "synced": true
+    },
+    {
+      "date": "2026-03-25",
+      "company": "Unknown Company",
+      "role": "Unknown Role",
+      "status": "Applied",
+      "method": "email",
+      "followup": "",
+      "notes": "Sent to siddharth@corenza.co.in",
+      "synced": true
+    },
+    {
+      "date": "2026-03-25",
+      "company": "Unknown Company",
+      "role": "Unknown Role",
+      "status": "Applied",
+      "method": "email",
+      "followup": "",
+      "notes": "Sent to uday.p@corenza.co",
+      "synced": true
+    },
+    {
+      "date": "2026-03-25",
+      "company": "Unknown Company",
+      "role": "Unknown Role",
+      "status": "Applied",
+      "method": "email",
+      "followup": "",
+      "notes": "Sent to Dev.Gupta1@in.ey.com",
+      "synced": true
+    },
+    {
+      "date": "2026-03-25",
+      "company": "Unknown Company",
+      "role": "Unknown Role",
+      "status": "Applied",
+      "method": "email",
+      "followup": "",
+      "notes": "Sent to Sarita Kachhwani <saritakachhwani@gmail.com>",
+      "synced": true
+    },
+    {
+      "date": "2026-03-25",
+      "company": "Unknown Company",
+      "role": "Unknown Role",
+      "status": "Applied",
+      "method": "email",
+      "followup": "",
+      "notes": "Sent to pooja.rasam@adityabirlacapital.com",
+      "synced": true
+    },
+    {
+      "date": "2026-03-25",
+      "company": "Unknown Company",
+      "role": "Unknown Role",
+      "status": "Applied",
+      "method": "email",
+      "followup": "",
+      "notes": "Sent to pooja.rasam@adityabirlacapital.com",
+      "synced": true
+    },
+    {
+      "date": "2026-03-25",
+      "company": "Treasury & FP&A Roles",
+      "role": "Unknown Role",
+      "status": "Applied",
+      "method": "email",
+      "followup": "",
+      "notes": "Sent to priyanka.kalbag@piind.com",
+      "synced": true
+    },
+    {
+      "date": "2026-03-25",
+      "company": "Unknown Company",
+      "role": "Test Application 2",
+      "status": "Applied",
+      "method": "email",
+      "followup": "",
+      "notes": "Sent to haresh.mulchandani01@gmail.com",
+      "synced": true
+    },
+    {
+      "date": "2026-03-25",
+      "company": "Unknown Company",
+      "role": "Test Application 3",
+      "status": "Applied",
+      "method": "email",
+      "followup": "",
+      "notes": "Sent to haresh.mulchandani01@gmail.com",
+      "synced": true
+    },
+    {
+      "date": "2026-03-25",
+      "company": "KPMG",
+      "role": "Internal Audit / SOX / Compliance (Mumbai)",
+      "status": "Applied",
+      "method": "email",
+      "followup": "",
+      "notes": "Sent to hrishikeshd@kpmg.com",
+      "synced": true
+    },
+    {
+      "date": "2026-03-20",
+      "company": "EY",
+      "role": "Treasury Audit",
+      "status": "Interview",
+      "method": "email",
+      "followup": "",
+      "notes": "Interviewed on 2026-03-20",
+      "synced": true
+    },
+    {
+      "date": "2026-03-21",
+      "company": "HDFC",
+      "role": "Treasury Audit",
+      "status": "Interview",
+      "method": "email",
+      "followup": "",
+      "notes": "Interviewed on 2026-03-21",
+      "synced": true
+    },
+    {
+      "date": "2026-03-20",
+      "company": "Nomura",
+      "role": "Risk and Control",
+      "status": "Applied",
+      "method": "email",
+      "followup": "",
+      "notes": "CV shared",
+      "synced": true
+    },
+    {
+      "date": "2026-03-27",
+      "company": "STCI",
+      "role": "Deputy HOD",
+      "status": "Interview Scheduled",
+      "method": "email",
+      "followup": "",
+      "notes": "Interview scheduled 3:30 PM on 2026-03-27",
+      "synced": true
+    },
+    {
+      "date": "2026-03-25",
+      "company": "HDFC Bank",
+      "role": "Re: HDFC Bank Interview - Treasury Audit",
+      "status": "Applied",
+      "method": "email",
+      "followup": "",
+      "notes": "Sent to vaibhavi.pradhan@hdfc.bank.in",
+      "synced": true
+    }
+  ],
+  "lastSync": "2026-03-28T16:52:34.754Z"
+}
