@@ -1,0 +1,42 @@
+# Secrets & credentials
+.env
+.env.*
+.credentials
+credentials/
+*.key
+*.pem
+secrets/
+
+# OpenClaw / agent stuff
+.ollama/
+.openclaw/models/
+.openclaw/gateway.log
+.openclaw/cron/
+.openclaw/credentials.json
+.openclaw/id_ed25519
+.openclaw/id_ed25519.pub
+
+# Workspace data
+data/
+exports/
+tmp/
+temp/
+logs/
+*.log
+node_modules/
+
+# Media inbound (could contain personal files)
+media/inbound/
+media/outbound/
+
+# OS / editor junk
+.DS_Store
+Thumbs.db
+*.swp
+*.swo
+*~
+.vscode/
+.idea/
+
+# Optional: keep a clean workspace example
+.env.example

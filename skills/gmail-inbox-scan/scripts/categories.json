@@ -1,0 +1,13 @@
+{
+  "Food": ["swiggy", "zomato", "restaurant", "cafe", "food", "dine", "eat", "bistro", "dining", "burger", "king", "mcdonalds", "dominos", "pizza", "kfc", "coffee", "chai", "sweets", "bikaner", "mithai", "snacks", "sweet"],
+  "Transport": ["uber", "ola", "fuel", "toll", "metro", "rapido", "parking", "taxi", "cab", "bus", "train", "fare"],
+  "Shopping": ["amazon", "flipkart", "myntra", "retail", "store", "mall", "shopping", "purchase", "bazaar", "zepto", "blinkit", "grofer", "bigbasket", "natures basket", "nature's basket", "grocery", " grocer", "marketplace", "bikaner"],
+  "Utilities": ["electricity", "mobile", "broadband", "gas", "recharge", "bill", "utility", "power", "internet", "water", "dth"],
+  "Entertainment": ["movie", "ticket", "netflix", "prime", "hotstar", "spotify", "music", "gaming", "concert", "cinema", "cinemas", "theatre", "miraj", "pvr", "inox", "bookmyshow", "show", "play"],
+  "Healthcare": ["pharmacy", "hospital", "doctor", "clinic", "medical", "health", "diagnostic", "lab", "medicine", "healthcare"],
+  "Household": ["rent", "grocery", "bigbasket", "natures basket", "grocer", "provisions", "milk", "vegetables", "vegetable", "fruits", "fruit", "kirana"],
+  "Transfer": ["upi", "bank transfer", "paytm", "gpay", "phonepe", "transfer", "receive", "send money", "withdrawal", "deposit"],
+  "Education": ["course", "udemy", "coursera", "book", "ebook", "tuition", "coaching", "school", "college", "education", "exam"],
+  "Travel": ["flight", "train", "bus", "hotel", "stay", "airbnb", "vacation", "holiday", "travel", "tour", "trip", "irctc", "railway"],
+  "EMI": ["emi", "loan", "loan account", "loan repayment", "hdfc loan", "icici loan", "axis loan", "sbi loan", "kotak loan"]
+}

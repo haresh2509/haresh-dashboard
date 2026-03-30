@@ -1,0 +1,5 @@
+{
+  "model": "qwen2:7b-instruct",
+  "prompt": "Extract structured JSON from this expense email: 'Uber ride from Connaught Place to airport on 2025-03-27, cost ₹450, paid via HDFC credit card ending 4567.' Format: {date, vendor, amount, currency, payment_method, category}",
+  "stream": false
+}
